@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "fl.android_client";
+option java_outer_classname = "grpcCommunicate";
+option objc_class_prefix = "gRPC";
+
+package fl_server;
+
+service FL {
+  rpc GetFlWeights ( Weight) returns (Weight) {}
+  rpc GetGlobalWeights (flag) returns (Weight) {}
+  rpc CommunicatedText (flag) returns (flag) {}
+}
+
+message Weight {
+  repeated InnerType arr_of_arrs = 1;
+  string flag_id = 2;
+}
+
+message InnerType {
+  repeated float arr = 1;
+}
+
+message flag {
+  string flag_id = 1;
+
+  // client_id flag
+}
